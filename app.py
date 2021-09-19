@@ -23,14 +23,14 @@ def upload_file_and_render_target_prompt():
     return redirect(url_for('index'))
 
 def merrick_temp():
-    filename = "test.csv"
+    testFilename = "test.csv"
 
     cols = ['Name', 'Branch', 'Year', 'CGPA'] 
     # data rows of csv file 
     rows = [ ['Nikhil', 'COE', '2', '9.0'] ]
 
     # writing to csv file 
-    with open(filename, 'w') as csvfile: 
+    with open(testFilename, 'w') as csvfile: 
         # creating a csv writer object 
         csvwriter = csv.writer(csvfile) 
             
@@ -39,6 +39,11 @@ def merrick_temp():
             
         # writing the data rows 
         csvwriter.writerows(rows)
+    
+    orig_len = len(filename)
+    # code removes the ".csv" portion of the filename 
+    output = os.system('tangram predict --model {}.tangram --file test.csv --output output.csv'.format(filename[:orig_len - 4]))
+    print(output)
 
 @app.route('/train', methods=['POST'])
 def train():
