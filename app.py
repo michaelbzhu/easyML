@@ -77,5 +77,5 @@ def evaluate():
     print(output_column)
     print("Here is the solution (final classification):")
     print(solution)
-    return redirect(url_for('index'))
+    return render_template("output.html", output_column=output_column, solution=solution)
 

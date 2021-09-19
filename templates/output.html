@@ -10,18 +10,8 @@
   </head>
   <body>
     <div class="content">
-        <form method="POST" action="/evaluate">
-            {% for input in inputs %}
-                {{input.name}}<input name={{input.name}}><br>
-            {% endfor %}
-            <select name="filename" style="display: none">
-                <option value={{filename}}></option>
-            </select>
-            <select name="target" style="display: none">
-                <option value={{target}}></option>
-            </select>
-            <input type="submit">
-        </form>
+        <p>The predicted {{output_column}} is {{solution}}.</p>
     </div>
+    <a href="index.html">Start over</a>
   </body>
 </html>
