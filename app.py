@@ -70,5 +70,12 @@ def evaluate():
     output = os.system('tangram predict --model {}.tangram --file {} --output output.csv'.format(filename[:-4], test_csv_filename))
     print(output)
 
+    df = pd.read_csv('output.csv')
+    output_column = list(df)[0]
+    solution = df.iloc[0][0]
+    print("Here is the output_column:")
+    print(output_column)
+    print("Here is the solution (final classification):")
+    print(solution)
     return redirect(url_for('index'))
 
