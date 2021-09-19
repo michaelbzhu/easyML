@@ -8,9 +8,9 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
   </head>
   <body>
-    <div class="content">
+    <div class="content" style="margin-top: 35%;">
         <form method="POST" action="/train">
-            <select id="columns" name="columns">
+            <select id="columns" name="columns" class="btn2" style="font-weight: 400;">
                 {% for item in data %}
                     <option value={{item.name}}>{{item.name}}</option>
                 {% endfor %}
@@ -20,7 +20,7 @@
                 <option value={{filename}}></option>
             </select>
 
-            <input name="target" type="submit">
+            <input name="target" type="submit" class="btn2" style="font-weight: 400;">
         </form>
     </div>
   </body>
