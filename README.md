@@ -1,4 +1,4 @@
-# ML For All
+# easyML: ML For All
 We want ML to become more accessible for everyone, and want to develop technologies that help people feel comfortable using ML. Our project makes it easy for users to understand and work with ML and data.
 
 # Demo: [easy-ml.xyz](http://easy-ml.xyz)
