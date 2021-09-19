@@ -22,30 +22,60 @@ def upload_file_and_render_target_prompt():
         return render_template("target_prompts.html", data=data, filename=uploaded_file.filename)
     return redirect(url_for('index'))
 
-def merrick_temp():
-    filename = "test.csv"
+@app.route('/train', methods=['POST'])
+def train():
+    target = request.form.get('columns')
+    filename = request.form.get('filename')
+    df = pd.read_csv(filename)
+    column_names = list(df)
+    column_names.remove(target)
+    inputs = [{"name": input} for input in column_names]
+    output = os.system('tangram train --file {} --target {}'.format(filename, target))
+    print(output)
+    return render_template("evaluate.html", inputs=inputs, filename=filename, target=target)
 
-    cols = ['Name', 'Branch', 'Year', 'CGPA'] 
-    # data rows of csv file 
-    rows = [ ['Nikhil', 'COE', '2', '9.0'] ]
 
+def make_csv(cols, rows, test_csv_filename):
     # writing to csv file 
-    with open(filename, 'w') as csvfile: 
+    with open(test_csv_filename, 'w+') as csvfile: 
         # creating a csv writer object 
         csvwriter = csv.writer(csvfile) 
             
         # writing the cols 
         csvwriter.writerow(cols) 
             
-        # writing the data rows 
+        # writing the data rows
         csvwriter.writerows(rows)
 
-@app.route('/train', methods=['POST'])
-def train():
-    target = request.form.get('columns')
+@app.route('/evaluate', methods=['POST'])
+def evaluate():
     filename = request.form.get('filename')
-    print(target)
-    print(filename)
-    output = os.system('tangram train --file {} --target {}'.format(filename, target))
+    target = request.form.get('target')
+    df = pd.read_csv(filename)
+    column_names = list(df)
+    column_names.remove(target)
+    input_parameters = column_names
+    user_inputs = []
+    for input in input_parameters:
+        user_inputs.append(request.form.get(input))
+
+    user_inputs = [user_inputs]
+
+    print(input_parameters)
+    print(user_inputs)
+
+    test_csv_filename = filename[:-4] + "_test.csv"
+    print(test_csv_filename)
+    csv = make_csv(input_parameters, user_inputs, test_csv_filename)
+    output = os.system('tangram predict --model {}.tangram --file {} --output output.csv'.format(filename[:-4], test_csv_filename))
     print(output)
-    return redirect(url_for('index'))
+
+    df = pd.read_csv('output.csv')
+    output_column = list(df)[0]
+    solution = df.iloc[0][0]
+    print("Here is the output_column:")
+    print(output_column)
+    print("Here is the solution (final classification):")
+    print(solution)
+    return render_template("output.html", output_column=output_column, solution=solution)
+
