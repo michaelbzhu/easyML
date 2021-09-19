@@ -7,14 +7,17 @@
     <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@200&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/li   bs/dropzone/5.7.1/min/dropzone.min.css">
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
   </head>
   <body>
-    <div class="content">
-      <p class="title-text">easyML</p>
-      <p class="subtitle-italics">ML for all</p>
-      <form method="POST" action="" enctype="multipart/form-data">
-        <input type="file" name="file"><br>
-        <input type="submit" value="Submit"><br>
+    <div class="text-center text-white container p-20">
+      <p class="text-8xl mb-10">easyML</p>
+      <p class="italic text-6xl mb-10">ML for all</p>
+      <form method="POST" class="h-auto" action="" enctype="multipart/form-data">
+        <input id="file_upload" type="file" name="file" hidden>
+        <label for="file_upload" class="mb-10 bg-blue-500 text-2xl p-5 rounded">Choose File!</label>
+        <br class = "max-w-0 mb-10">
+        <input type="submit" value="Submit" class="text-black mb-10 bg-blue-500 text-2xl p-5 rounded"><br>
       </form>
     </div>
   </body>
