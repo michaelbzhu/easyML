@@ -3,6 +3,21 @@
   background: transparent;
 }
 
+input[type=submit]{
+  font-family: 'Source Sans Pro', sans-serif;
+  font-weight: 200px;
+}
+
+input[type=file]{
+  font-family: 'Source Sans Pro', sans-serif;
+  font-weight: 200px;
+}
+
+select{
+  font-family: 'Source Sans Pro', sans-serif;
+  font-weight: 200px;
+}
+
 .title-text {
 	font-family: 'Source Sans Pro', sans-serif;
 	font-weight: 200px;
