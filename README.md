@@ -1,5 +1,5 @@
 # easyML: ML For All
-We want ML to become more accessible for everyone, and we want to develop technologies that help people feel comfortable using ML. Our project makes it easy for users to understand and work with ML and data.
+We want ML to become more accessible for everyone and to develop technologies that help people feel comfortable using ML. Our project makes it easy for users to understand and work with machine learning and data. A user can upload a csv dataset to our website and our service will automatically train a gradient boosted decision tree model on their data. The user can then query this model to generate new predictions. By abstracting away the complexities of downloading software libraries and managing compute hardware, we enable users to focus entirely on their data and the application of their models. 
 
 # Demo: [easy-ml.xyz](http://easy-ml.xyz)
 1. Acquire a csv file of the data you want to train on (e.g. [heart_disease.csv](https://www.tangram.dev/heart_disease.csv))
