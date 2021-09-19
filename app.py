@@ -34,6 +34,7 @@ def train():
     print(output)
     return render_template("evaluate.html", inputs=inputs, filename=filename, target=target)
 
+
 def make_csv(cols, rows, test_csv_filename):
     # writing to csv file 
     with open(test_csv_filename, 'w+') as csvfile: 
