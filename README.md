@@ -1,5 +1,5 @@
 # easyML: ML For All
-We want ML to become more accessible for everyone, and want to develop technologies that help people feel comfortable using ML. Our project makes it easy for users to understand and work with ML and data.
+We want ML to become more accessible for everyone, and we want to develop technologies that help people feel comfortable using ML. Our project makes it easy for users to understand and work with ML and data.
 
 # Demo: [easy-ml.xyz](http://easy-ml.xyz)
 1. Acquire a csv file of the data you want to train on (e.g. [heart_disease.csv](https://www.tangram.dev/heart_disease.csv))
