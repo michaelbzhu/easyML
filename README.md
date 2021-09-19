@@ -15,4 +15,4 @@ Over the past several years, our team has seen certain communities across the wo
 
 Our project easyML attempts to solve this communal disparity. Machine learning has allowed many communities to make many fascinating advancements, but at the same time, its complexity has left many communities in the dust. We seek to make machine learning extremely easy for anyone to use. 
 
-With our website, all you need to do is upload a data set, and easyML will guide you through the rest. No parameter tuning, no model selection, no complexity at all. Through Tangram, we’ve engineered a tool that we hope has lowered the barrier for those seeking to understand the information of the world. 
+With our website, all you need to do is upload a data set, and easyML will guide you through the rest. No parameter tuning, no model selection, no complexity at all. Through [Tangram](https://www.tangram.dev/), we’ve engineered a tool that we hope has lowered the barrier for those seeking to understand the information of the world. 
