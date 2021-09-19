@@ -3,7 +3,7 @@
 2. Upload csv file to home page of [easy-ml.xyz](http://easy-ml.xyz)
 3. Select the target column that you want to predict for in the csv file (e.g. diagnostic in [heart_disease.csv](https://www.tangram.dev/heart_disease.csv))
 5. A gradient boosted decision tree will be trained on the data in our backend EC2 instance
-6. Finally, a page pops up where you can input new data to generate a prediction 
+6. Finally, a page pops up where you can input new data to generate a prediction (e.g. is this person likely to be diagnosed with heart disease?)
 
 
 # ML For All
