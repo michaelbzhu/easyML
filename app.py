@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request, redirect, url_for
 import os
 import pandas as pd
+import csv 
 
 app = Flask(__name__)
 
@@ -21,6 +22,29 @@ def upload_file_and_render_target_prompt():
         return render_template("target_prompts.html", data=data, filename=uploaded_file.filename)
     return redirect(url_for('index'))
 
+        # Train the model
+        output = os.system('tangram train --file {} --target diagnosis'.format(uploaded_file.filename))
+        print(output)
+        os.remove(uploaded_file.filename)
+    return redirect(url_for('index'))
+
+def merrick_temp():
+    filename = "test.csv"
+
+    cols = ['Name', 'Branch', 'Year', 'CGPA'] 
+    # data rows of csv file 
+    rows = [ ['Nikhil', 'COE', '2', '9.0'] ]
+
+    # writing to csv file 
+    with open(filename, 'w') as csvfile: 
+        # creating a csv writer object 
+        csvwriter = csv.writer(csvfile) 
+            
+        # writing the cols 
+        csvwriter.writerow(cols) 
+            
+        # writing the data rows 
+        csvwriter.writerows(rows)
 
 @app.route('/train', methods=['POST'])
 def train():
@@ -32,4 +56,5 @@ def train():
     # Train the model
     output = os.system('tangram train --file {} --target {}'.format(filename, target))
     print(output)
+    os.remove(uploaded_file.filename)
     return redirect(url_for('index'))
