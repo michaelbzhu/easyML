@@ -49,8 +49,15 @@ def merrick_temp():
 def train():
     target = request.form.get('columns')
     filename = request.form.get('filename')
-    print(target)
-    print(filename)
+    df = pd.read_csv(filename)
+    column_names = list(df)
+    column_names.remove(target)
+    inputs = [{"name": input} for input in column_names]
     output = os.system('tangram train --file {} --target {}'.format(filename, target))
     print(output)
+    return render_template("evaluate.html", inputs=inputs, filename=filename)
+
+@app.route('/evaluate', methods=['POST'])
+def evaluate():
     return redirect(url_for('index'))
+
