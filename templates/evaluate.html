@@ -10,19 +10,28 @@
     <script src="index.js"></script>
   </head>
   <body>
-    <div class="content">
-        <form method="POST" name="evaluate_inputs" action="/evaluate">
-            {% for input in inputs %}
-                {{input.name}}<input type="text" name={{input.name}}><br>
-            {% endfor %}
-            <select name="filename" style="display: none">
-                <option value={{filename}}></option>
-            </select>
-            <select name="target" style="display: none">
-                <option value={{target}}></option>
-            </select>
-            <input type="submit">
-        </form>
+    <div class="content" style="overflow: auto;">
+        <center>
+            <div style="max-width: 75%; text-align: left; margin-top: 200px; margin-bottom: 200px;">
+                <form method="POST" name="evaluate_inputs" action="/evaluate">
+                    {% for input in inputs %}
+                        <div style="width: 50%; float: left; position: relative; font-family: 'Source Sans Pro', sans-serif; color: white; font-size: 30px;">
+                            {{input.name}}
+                        </div>
+                        <div style="width: 50%; float: left; position: relative;">
+                            <input type="text" name={{input.name}}><br>
+                        </div>
+                    {% endfor %}
+                    <select name="filename" style="display: none">
+                        <option value={{filename}}></option>
+                    </select>
+                    <select name="target" style="display: none">
+                        <option value={{target}}></option>
+                    </select>
+                    <input type="submit" style="font-size: 30px;">
+                </form>
+            </div>
+        </center>
     </div>
   </body>
 </html>
