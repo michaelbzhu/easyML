@@ -63,7 +63,7 @@ def evaluate():
 
     print(input_parameters)
     print(user_inputs)
-
+    open("output.csv", 'w+') 
     test_csv_filename = filename[:-4] + "_test.csv"
     print(test_csv_filename)
     csv = make_csv(input_parameters, user_inputs, test_csv_filename)
