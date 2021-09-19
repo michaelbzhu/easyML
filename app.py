@@ -22,12 +22,6 @@ def upload_file_and_render_target_prompt():
         return render_template("target_prompts.html", data=data, filename=uploaded_file.filename)
     return redirect(url_for('index'))
 
-        # Train the model
-        output = os.system('tangram train --file {} --target diagnosis'.format(uploaded_file.filename))
-        print(output)
-        os.remove(uploaded_file.filename)
-    return redirect(url_for('index'))
-
 def merrick_temp():
     filename = "test.csv"
 
@@ -50,11 +44,8 @@ def merrick_temp():
 def train():
     target = request.form.get('columns')
     filename = request.form.get('filename')
-
     print(target)
     print(filename)
-    # Train the model
     output = os.system('tangram train --file {} --target {}'.format(filename, target))
     print(output)
-    os.remove(uploaded_file.filename)
     return redirect(url_for('index'))
