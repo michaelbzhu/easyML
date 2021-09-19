@@ -1,6 +1,41 @@
+.content {
+  text-align: center;
+  background: transparent;
+}
+
+.title-text {
+	font-family: 'Source Sans Pro', sans-serif;
+	font-weight: 200px;
+	color: white;
+	font-size: 100px;
+}
+
+.subtitle-italics {
+	font-family: 'Source Sans Pro', sans-serif;
+	font-style: italic;
+	font-weight: 200px;
+	color: white;
+	font-size: 50px;
+}
+
 html {
   height: 100%;
-  background: black; 
-  font-family: 'Source Sans Pro', sans-serif;
+  background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
   overflow: hidden;
+}
+
+.btn1 {
+  font-family: 'Source Sans Pro', sans-serif;
+  color: black;
+  padding: 5px;
+  background: white;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  padding: 5px;
+  font-weight: bold;
+  font-size: x-large;
+}
+
+.btn2 {
+
 }

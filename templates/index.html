@@ -6,17 +6,16 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@200&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
-    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
   </head>
   <body>
-    <div class="text-center text-white container p-20">
-      <p class="text-8xl mb-10">easyML</p>
-      <p class="italic text-6xl mb-10">ML for all</p>
-      <form method="POST" class="h-auto" action="" enctype="multipart/form-data">
+    <div class="content">
+      <p class="title-text">easyML</p>
+      <p class="subtitle-italics">ML for all</p>
+      <form method="POST" action="" enctype="multipart/form-data">
         <input id="file_upload" type="file" name="file" hidden>
-        <label for="file_upload" class="mb-10 bg-blue-500 text-2xl p-5 rounded">Choose File!</label>
-        <br class = "max-w-0 mb-10">
-        <input type="submit" value="Submit" class="text-black mb-10 bg-blue-500 text-2xl p-5 rounded"><br>
+        <label for="file_upload" class="btn1">Upload CSV</label>
+        <br style="margin-bottom: 20px;">
+        <input class="btn1" type="submit" value="Submit">
       </form>
     </div>
   </body>
