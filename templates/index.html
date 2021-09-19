@@ -6,15 +6,17 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@200&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.7.1/min/dropzone.min.css">
   </head>
   <body>
     <div class="content">
       <p class="title-text">easyML</p>
       <p class="subtitle-italics">ML for all</p>
-      <form method="POST" action="" enctype="multipart/form-data">
-        <p><input type="file" name="file"></p>
-        <p><input type="submit" value="Submit"></p>
-      </form>
+        <form action="{{ url_for('upload_file') }}" class="dropzone">
+        </form>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.7.1/min/dropzone.min.js"></script>
+        
+      
     </div>
   </body>
 </html>
