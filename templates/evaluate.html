@@ -10,18 +10,14 @@
   </head>
   <body>
     <div class="content">
-        <form method="POST" action="/train">
-            <select id="columns" name="columns">
-                {% for item in data %}
-                    <option value={{item.name}}>{{item.name}}</option>
-                {% endfor %}
-            </select>
-
+        <form method="POST" action="/evaluate">
+            {% for input in inputs %}
+                {{input.name}}<input name={{input.name}}><br>
+            {% endfor %}
             <select name="filename" style="display: none">
                 <option value={{filename}}></option>
             </select>
-
-            <input name="target" type="submit">
+            <input type="submit">
         </form>
     </div>
   </body>
