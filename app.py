@@ -22,29 +22,6 @@ def upload_file_and_render_target_prompt():
         return render_template("target_prompts.html", data=data, filename=uploaded_file.filename)
     return redirect(url_for('index'))
 
-def merrick_temp():
-    testFilename = "test.csv"
-
-    cols = ['Name', 'Branch', 'Year', 'CGPA'] 
-    # data rows of csv file 
-    rows = [ ['Nikhil', 'COE', '2', '9.0'] ]
-
-    # writing to csv file 
-    with open(testFilename, 'w') as csvfile: 
-        # creating a csv writer object 
-        csvwriter = csv.writer(csvfile) 
-            
-        # writing the cols 
-        csvwriter.writerow(cols) 
-            
-        # writing the data rows 
-        csvwriter.writerows(rows)
-    
-    orig_len = len(filename)
-    # code removes the ".csv" portion of the filename 
-    output = os.system('tangram predict --model {}.tangram --file test.csv --output output.csv'.format(filename[:orig_len - 4]))
-    print(output)
-
 @app.route('/train', methods=['POST'])
 def train():
     target = request.form.get('columns')
@@ -55,9 +32,42 @@ def train():
     inputs = [{"name": input} for input in column_names]
     output = os.system('tangram train --file {} --target {}'.format(filename, target))
     print(output)
-    return render_template("evaluate.html", inputs=inputs, filename=filename)
+    return render_template("evaluate.html", inputs=inputs, filename=filename, target=target)
+
+def make_csv(cols, rows, test_csv_filename):
+    # writing to csv file 
+    with open(test_csv_filename, 'w+') as csvfile: 
+        # creating a csv writer object 
+        csvwriter = csv.writer(csvfile) 
+            
+        # writing the cols 
+        csvwriter.writerow(cols) 
+            
+        # writing the data rows
+        csvwriter.writerows(rows)
 
 @app.route('/evaluate', methods=['POST'])
 def evaluate():
+    filename = request.form.get('filename')
+    target = request.form.get('target')
+    df = pd.read_csv(filename)
+    column_names = list(df)
+    column_names.remove(target)
+    input_parameters = column_names
+    user_inputs = []
+    for input in input_parameters:
+        user_inputs.append(request.form.get(input))
+
+    user_inputs = [user_inputs]
+
+    print(input_parameters)
+    print(user_inputs)
+
+    test_csv_filename = filename[:-4] + "_test.csv"
+    print(test_csv_filename)
+    csv = make_csv(input_parameters, user_inputs, test_csv_filename)
+    output = os.system('tangram predict --model {}.tangram --file {} --output output.csv'.format(filename[:-4], test_csv_filename))
+    print(output)
+
     return redirect(url_for('index'))
 
