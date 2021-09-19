@@ -27,6 +27,7 @@ def merrick_temp():
 
     cols = ['Name', 'Branch', 'Year', 'CGPA'] 
     # data rows of csv file 
+    # rows must be a list of a list
     rows = [ ['Nikhil', 'COE', '2', '9.0'] ]
 
     # writing to csv file 
