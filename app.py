@@ -77,5 +77,11 @@ def evaluate():
     print(output_column)
     print("Here is the solution (final classification):")
     print(solution)
+    directory = '.'
+    files_in_directory = os.listdir(directory)
+    filtered_files = [file for file in files_in_directory if file.endswith(".csv") or file.endswith('.tangram')]
+    for file in filtered_files:
+        path_to_file = os.path.join(directory, file)
+        os.remove(path_to_file)
     return render_template("output.html", output_column=output_column, solution=solution)
 
