@@ -8,20 +8,23 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
   </head>
   <body>
-    <div class="content" style="margin-top: 35%;">
-        <form method="POST" action="/train">
-            <select id="columns" name="columns" class="btn2" style="font-weight: 400;">
-                {% for item in data %}
-                    <option value={{item.name}}>{{item.name}}</option>
-                {% endfor %}
-            </select>
+    <center>
+        <div class="content" style="margin: 0; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
+            <p style="font-family: 'Source Sans Pro', sans-serif; color: white; font-size: 30px;">Select the attribute you would like to predict!</p>
+            <form method="POST" action="/train">
+                <select id="columns" name="columns" class="btn2" style="font-weight: 400;">
+                    {% for item in data %}
+                        <option value={{item.name}}>{{item.name}}</option>
+                    {% endfor %}
+                </select>
 
-            <select name="filename" style="display: none">
-                <option value={{filename}}></option>
-            </select>
+                <select name="filename" style="display: none">
+                    <option value={{filename}}></option>
+                </select>
 
-            <input name="target" type="submit" class="btn2" style="font-weight: 400;">
-        </form>
-    </div>
+                <input name="target" type="submit" class="btn2" style="font-weight: 400;">
+            </form>
+        </div>
+    </center>
   </body>
 </html>

@@ -67,6 +67,19 @@ html {
   font-size: xx-large;
 }
 
+.btn1_link {
+  font-family: 'Source Sans Pro', sans-serif;
+  color: black;
+  padding: 5px;
+  background: white;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  padding:  15px;
+  font-weight: bold;
+  font-size: xx-large;
+  text-decoration: none;
+}
+
 .btn2 {
   font-family: 'Source Sans Pro', sans-serif;
   color: black;
