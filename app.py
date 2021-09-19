@@ -16,8 +16,8 @@ def upload_file():
         
         # Extract column names
         df = pd.read_csv(uploaded_file.filename)
-        column_names = list(df)
-        
+        column_names = list(df) # ['age', 'gender', 'chest_pain', 'resting_blood_pressure', 'cholesterol', 'fasting_blood_sugar_greater_than_120', 'resting_ecg_result', 'exercise_max_heart_rate', 'exercise_induced_angina', 'exercise_st_depression', 'exercise_st_slope', 'fluoroscopy_vessels_colored', 'thallium_stress_test', 'diagnosis']  
+
         # Train the model
         output = os.system('tangram train --file {} --target diagnosis'.format(uploaded_file.filename))
         print(output)
