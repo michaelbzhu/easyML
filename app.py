@@ -27,6 +27,7 @@ def train():
     target = request.form.get('columns')
     filename = request.form.get('filename')
     print(os.system('ls')) #debugging server side
+    print(os.system('tangram --help')) #debugging server side
     df = pd.read_csv(filename)
     column_names = list(df)
     column_names.remove(target)
