@@ -14,6 +14,6 @@ WORKDIR /app
 RUN pip3 install -r requirements.txt
 RUN tangram --help
 RUN ls
-RUN tangram train --file heart_disease.csv --target diagnosis
+RUN tangram train --file heart_disease.csv 
 
 CMD ["gunicorn", "app:app"]
