@@ -69,6 +69,7 @@ def evaluate():
     csv = make_csv(input_parameters, user_inputs, test_csv_filename)
     output = os.system('tangram predict --model {}.tangram --file {} --output output.csv'.format(filename[:-4], test_csv_filename))
     print(output)
+    print(os.system("ls")) #debugging
 
     df = pd.read_csv('output.csv')
     output_column = list(df)[0]
