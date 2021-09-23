@@ -26,6 +26,7 @@ def upload_file_and_render_target_prompt():
 def train():
     target = request.form.get('columns')
     filename = request.form.get('filename')
+    print(os.system('ls')) #debugging server side
     df = pd.read_csv(filename)
     column_names = list(df)
     column_names.remove(target)
