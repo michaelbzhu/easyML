@@ -34,6 +34,7 @@ def train():
     inputs = [{"name": input} for input in column_names]
     output = os.system('tangram train --file {} --target {}'.format(filename, target))
     print(output)
+    print(os.system('ls')) #debugging server side
     return render_template("evaluate.html", inputs=inputs, filename=filename, target=target)
 
 
