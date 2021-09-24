@@ -27,13 +27,14 @@ def train():
     target = request.form.get('columns')
     filename = request.form.get('filename')
     print(filename)
+    print(os.system('pwd'))
     print(os.system('ls')) #debugging server side
     print(os.system('tangram --help')) #debugging server side
     df = pd.read_csv(filename)
     column_names = list(df)
     column_names.remove(target)
     inputs = [{"name": input} for input in column_names]
-    output = os.system('tangram train --file {} --target {}'.format(filename, target))
+    output = os.system('tangram train --file {} --target {} --no-progress'.format(filename, target))
     print(output)
     print(os.system('ls')) #debugging server side
     return render_template("evaluate.html", inputs=inputs, filename=filename, target=target)
