@@ -26,6 +26,7 @@ def upload_file_and_render_target_prompt():
 def train():
     target = request.form.get('columns')
     filename = request.form.get('filename')
+    print(filename)
     print(os.system('ls')) #debugging server side
     print(os.system('tangram --help')) #debugging server side
     df = pd.read_csv(filename)
